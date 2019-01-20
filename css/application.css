@@ -228,4 +228,5 @@ textarea, textarea:focus  {
     min-height: 15rem;
     border: 0.0625rem solid #cacaca;
     border-radius: 0.1875rem;
+    font-size: 0.875rem;
 }
