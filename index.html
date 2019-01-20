@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Classic WOW</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css" integrity="sha256-itWEYdFWzZPBG78bJOOiQIn06QCgN/F0wMDcC4nOhxY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/application.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" href="images/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon-180x180.png" sizes="180x180" />
+
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu show-for-small-only">
+          <li class="menu-text"><img src="./images/favicon.png"> Classic WOW Application</li>
+        </ul>
+        <ul class="menu show-for-medium">
+          <li class="menu-text"><img src="./images/favicon.png"> Classic WOW Application</li>
+        </ul>
+      </div>
+      <div class="top-bar-right show-for-medium">
+        <ul class="menu">
+          <li><a id="switch-desktop"><i class="far fa-sun"></i> Light Mode</a></li>
+        </ul>
+      </div>
+    </div><br />
+    <div class="column row" id="content">
+      
+      <label for="id-field">Full Discord ID</label>
+      <p class="help-text" id="id-help">Including discriminator (Example: lindenkron#1337)</p>
+      <input type="text" id="id-field" aria-describedby="id-help" required>
+      
+      <label for="age-field">Age</label>
+      <p class="help-text" id="age-help"></p>
+      <input type="text" id="age-field" aria-describedby="age-help" required>
+      <label for="short-field">Short description</label>
+      <p class="help-text" id="short-help">List the three words that best describes you</p>
+      <input type="text" id="short-field" aria-describedby="short-help" required>
+      <label for="long-field">Long description</label>
+      <p class="help-text" id="long-help">Long application description, stay under 1000 characters</p>
+      <textarea name="long-description" id="long-field" aria-describedby="long-help" required></textarea>
+      <div class="callout warn hidden" id="lrg-rep">
+        <p>Your description is too long. Shorten it down and stay under 1000 characters, then try and copy again.</p>
+      </div>
+      <label>Application typeform</label>
+      <p class="help-text" id="syntax-help">Copy the text below and paste it into the appropriate channel. Note: This field will be empty until all required fields are filled in</p>
+      <div class="callout syntaxbox">
+        <pre class="bug-syntax" id="syntax"></pre>
+        <button type="button" class="button cb-btn" id="copy-btn" title="Click to copy text">Copy</button>
+      </div>
+    </div>
+    <div class="reveal" id="client-ver-modal" data-reveal>
+      <h4>Finding your Discord client version</h4>
+      <dl>
+        <dt>Android/iOS</dt>
+        <dd>
+          <ul>
+            <li>Open the Settings menu and scroll down</li>
+            <li>The version number should be listed at the bottom or next to the 'Change Log' entry</li>
+            <li>Also include if you're using a Testflight (inc. build number) or Alpha/Beta build</li>
+          </ul>
+        </dd>
+        <dt>Desktop</dt>
+        <dd>
+          <ul>
+            <li>Open Dev Tools using <kbd>Ctrl+Shift+I</kbd> (Windows/Linux) or <kbd>Cmd+Opt+I</kbd> (macOS)</li>
+            <li>Click the Console tab</li>
+            <li>Scroll up and find the entry beginning '[BUILD INFO]'</li>
+          </ul>
+        </dd>
+      </dl>
+      <button type="button" class="close-button" data-close aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js" integrity="sha256-Nd2xznOkrE9HkrAMi4xWy/hXkQraXioBg9iYsBrcFrs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <script src="js/application.js"></script>
+    <script>
+      $(document).foundation();
+      $(document).ready(pageLoad('create'));
+    </script>
+  </body>
+</html>
