@@ -48,6 +48,10 @@ input[type="text"], select {
     border-radius: 0.1875rem;
 }
 
+#class-field {
+    color: #555;
+}
+
 @supports (-webkit-overflow-scrolling: touch) {
     input[type="text"], select {
         height: 2.4375rem;

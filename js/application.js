@@ -1,8 +1,8 @@
 var field_data = {
-    id: {
-        fn: "Discord ID",
-        ht: "Discord ID including discriminator",
-        al: "id"
+    char: {
+        fn: "Character name",
+        ht: "In-game wow character name",
+        al: "char"
     },
     age: {
         fn: "Age",
@@ -33,13 +33,13 @@ var mm = {
 };
 
 function updateSyntax() {
-    var id = $('#id-field').val();
+    var char = $('#char-field').val();
     var age = $('#age-field').val();
     var short = $('#short-field').val();
     var long = $('#long-field').val();
     var bugtext = '';
-    if (id && age && short && long) {
-        bugtext = '-apply "' + id + '" "' + age + '" "' + short + '" "' + long + '"';
+    if (char && age && short && long) {
+        bugtext = '-apply "' + char + '" "' + age + '" "' + short + '" "' + long + '"';
     }
     $('#syntax').text(bugtext);
     $('#lrg-rep').toggleClass('hidden', bugtext.length < 1050);

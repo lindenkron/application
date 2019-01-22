@@ -32,12 +32,15 @@
     </div><br />
     <div class="column row" id="content">
       
-      <label for="id-field">Full Discord ID</label>
-      <p class="help-text" id="id-help">Including discriminator (Example: lindenkron#1337)</p>
-      <input type="text" id="id-field" aria-describedby="id-help" required>
-      
+      <label for="char-field">Character name</label>
+      <p class="help-text" id="char-help">Name of your in-game character that you're planning on playing</p>
+      <input type="text" id="char-field" aria-describedby="char-help" required>
+
+      <label for="class-field">Class</label>
+      <p class="help-text" id="class-help">Class will be automatically detected based on your role on discord.<br><b>*OBS*</b> make sure you've picked a role in <a href="https://discordapp.com/channels/529311380566704129/529311380570898432/532372853828354059" target="_blank"><b>#welcome-read-this</b></a></p>
+      <input type="text" value="Druid|Hunter|Mage|Paladin|Priest|Rogue|Shaman|Warlock|Warrior" id="class-field" aria-describedby="class-help" disabled>
       <label for="age-field">Age</label>
-      <p class="help-text" id="age-help"></p>
+      <p class="help-text" id="age-help">Your age</p>
       <input type="text" id="age-field" aria-describedby="age-help" required>
       <label for="short-field">Short description</label>
       <p class="help-text" id="short-help">List the three words that best describes you</p>
@@ -55,30 +58,7 @@
         <button type="button" class="button cb-btn" id="copy-btn" title="Click to copy text">Copy</button>
       </div>
     </div>
-    <div class="reveal" id="client-ver-modal" data-reveal>
-      <h4>Finding your Discord client version</h4>
-      <dl>
-        <dt>Android/iOS</dt>
-        <dd>
-          <ul>
-            <li>Open the Settings menu and scroll down</li>
-            <li>The version number should be listed at the bottom or next to the 'Change Log' entry</li>
-            <li>Also include if you're using a Testflight (inc. build number) or Alpha/Beta build</li>
-          </ul>
-        </dd>
-        <dt>Desktop</dt>
-        <dd>
-          <ul>
-            <li>Open Dev Tools using <kbd>Ctrl+Shift+I</kbd> (Windows/Linux) or <kbd>Cmd+Opt+I</kbd> (macOS)</li>
-            <li>Click the Console tab</li>
-            <li>Scroll up and find the entry beginning '[BUILD INFO]'</li>
-          </ul>
-        </dd>
-      </dl>
-      <button type="button" class="close-button" data-close aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js" integrity="sha256-Nd2xznOkrE9HkrAMi4xWy/hXkQraXioBg9iYsBrcFrs=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
