@@ -30,8 +30,7 @@
         </ul>
       </div>
     </div><br />
-    <div class="column row" id="content">
-      
+    <div class="column row" id="content"> 
       <label for="char-field">Character name</label>
       <p class="help-text" id="char-help">Name of your in-game character that you're planning on playing</p>
       <input type="text" id="char-field" aria-describedby="char-help" required>
@@ -42,6 +41,16 @@
       <label for="age-field">Age</label>
       <p class="help-text" id="age-help">Your age</p>
       <input type="text" id="age-field" aria-describedby="age-help" required>
+      <label for="avail-field">Available days</label>
+      <p class="help-text" id="age-help">Check which days you'll mostly be available to play in</p>
+      <div class="help-days">MON<br><input type="checkbox" id="d0-field" value="Monday" aria-describedby="avail-help"></div>
+      <div class="help-days">TUE<br><input type="checkbox" id="d1-field" value="Tuesday" aria-describedby="avail-help"></div>
+      <div class="help-days">WED<br><input type="checkbox" id="d2-field" value="Wednesday" aria-describedby="avail-help"></div>
+      <div class="help-days">THU<br><input type="checkbox" id="d3-field" value="Thursday" aria-describedby="avail-help"></div>
+      <div class="help-days">FRI<br><input type="checkbox" id="d4-field" value="Friday" aria-describedby="avail-help"></div>
+      <div class="help-days">SAT<br><input type="checkbox" id="d5-field" value="Saturday" aria-describedby="avail-help"></div>
+      <div class="help-days">SUN<br><input type="checkbox" id="d6-field" value="Sunday" aria-describedby="avail-help"></div>
+      <div class="line"></div>
       <label for="short-field">Short description</label>
       <p class="help-text" id="short-help">List the three words that best describes you</p>
       <input type="text" id="short-field" aria-describedby="short-help" required>

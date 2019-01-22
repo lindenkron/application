@@ -86,11 +86,13 @@ body:not(.light) select option {
     font-style: normal;
     font-weight: 400;
     color: rgba(255,255,255,.8);
+    clear: both;
 }
 
 label {
     font-weight: 600;
     color: #ffffff;
+    clear: both;
 }
 
 body.light label {
@@ -229,8 +231,25 @@ body.light .mbox, body.light .reveal {
 }
 
 textarea, textarea:focus  {
-    min-height: 15rem;
+    min-height: 7.5rem;
     border: 0.0625rem solid #cacaca;
     border-radius: 0.1875rem;
     font-size: 0.875rem;
 }
+
+.line {    
+    border-bottom: 0.0625rem dotted #aaa;
+    width: auto;
+    clear: both;
+}
+
+.help-days {
+    float: left;
+    font-size: 0.75rem;
+    width: 2rem;
+    text-align: center;
+}
+
+input[type="checkbox"], select {
+}
+

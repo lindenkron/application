@@ -37,9 +37,19 @@ function updateSyntax() {
     var age = $('#age-field').val();
     var short = $('#short-field').val();
     var long = $('#long-field').val();
+    var days = '';
     var bugtext = '';
-    if (char && age && short && long) {
-        bugtext = '-apply "' + char + '" "' + age + '" "' + short + '" "' + long + '"';
+
+    for (var i = 0; i <= 6; i++) {
+        var checkbox = document.getElementById('d' + i + '-field');
+        var day = $('#d' + i + '-field').val();
+        if (checkbox.checked) {
+            days = days + ' ' + day;
+        }
+    }
+    if (char && age && days && short && long) {
+        days = days.substring(1);
+        bugtext = '-apply "' + char + '" "' + age + '" "' + days + '" "' + short + '" "' + long + '"';
     }
     $('#syntax').text(bugtext);
     $('#lrg-rep').toggleClass('hidden', bugtext.length < 1050);
@@ -92,7 +102,8 @@ function pageLoad(page) {
     switch (page) {
         case "create":
             $('div#content').on('input', 'input[id*="-field"]', updateSyntax);
-            $('div#content').on('input', 'textarea[id*="-field"]',updateSyntax);
+            $('div#content').on('input', 'checkbox[id*="-field"]', updateSyntax);
+            $('div#content').on('input', 'textarea[id*="-field"]', updateSyntax);
             cb_btn = '#copy-btn';
             st = '#syntax';
             break;
