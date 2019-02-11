@@ -33,14 +33,13 @@
     <div class="column row" id="content"> 
       <label for="char-field">Character name</label>
       <p class="help-text" id="char-help">Name of your in-game character that you're planning on playing</p>
-      <input type="text" id="char-field" aria-describedby="char-help" required>
-
+      <input type="text" style="width: 200px" id="char-field" aria-describedby="char-help" required>
       <label for="class-field">Class</label>
       <p class="help-text" id="class-help">Class will be automatically detected based on your role on discord.<br><b>*OBS*</b> make sure you've picked a role in <a href="https://discordapp.com/channels/529311380566704129/529311380570898432/532372853828354059" target="_blank"><b>#welcome-read-this</b></a></p>
-      <input type="text" value="Druid|Hunter|Mage|Paladin|Priest|Rogue|Shaman|Warlock|Warrior" id="class-field" aria-describedby="class-help" disabled>
+      <input type="text" style="width: 480px" value="Druid|Hunter|Mage|Paladin|Priest|Rogue|Shaman|Warlock|Warrior" id="class-field" aria-describedby="class-help" disabled>
       <label for="age-field">Age</label>
-      <p class="help-text" id="age-help">Your age</p>
-      <input type="text" id="age-field" aria-describedby="age-help" required>
+      <p class="help-text" id="age-help">Your age (>16 & <80)</p>
+      <input type="number" style="width: 120px" id="age-field" aria-describedby="age-help" max="80" min="16" required>
       <label for="avail-field">Available days</label>
       <p class="help-text" id="age-help">Check which days you'll mostly be available to play in</p>
       <div class="help-days">MON<br><input type="checkbox" id="d0-field" value="Monday" aria-describedby="avail-help"></div>
@@ -52,8 +51,11 @@
       <div class="help-days">SUN<br><input type="checkbox" id="d6-field" value="Sunday" aria-describedby="avail-help"></div>
       <div class="line"></div>
       <label for="short-field">Short description</label>
-      <p class="help-text" id="short-help">List the three words that best describes you</p>
-      <input type="text" id="short-field" aria-describedby="short-help" required>
+      <p class="help-text" id="short-help">List the <b>three</b> words that best describes you</p>
+      <input type="text" style="width: 250px" id="short-field" aria-describedby="short-help" required>
+      <div class="callout warn hidden" id="threewords">
+      Please stick to three words!
+      </div>
       <label for="long-field">Long description</label>
       <p class="help-text" id="long-help">Long application description, stay under 1000 characters</p>
       <textarea name="long-description" id="long-field" aria-describedby="long-help" required></textarea>
@@ -61,7 +63,7 @@
         <p>Your description is too long. Shorten it down and stay under 1000 characters, then try and copy again.</p>
       </div>
       <label>Application typeform</label>
-      <p class="help-text" id="syntax-help">Copy the text below and paste it into the appropriate channel. Note: This field will be empty until all required fields are filled in</p>
+      <p class="help-text" id="syntax-help">Copy the text below and paste it into the <a href="https://discordapp.com/channels/529311380566704129/536152235676139520/">appropriate channel</a>. Note: This field will be empty until all required fields are filled in</p>
       <div class="callout syntaxbox">
         <pre class="bug-syntax" id="syntax"></pre>
         <button type="button" class="button cb-btn" id="copy-btn" title="Click to copy text">Copy</button>
@@ -75,6 +77,7 @@
     <script>
       $(document).foundation();
       $(document).ready(pageLoad('create'));
+
     </script>
   </body>
 </html>

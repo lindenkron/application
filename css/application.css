@@ -42,7 +42,7 @@ input:required:invalid, textarea:required:invalid {
 
 
 
-input[type="text"], select {
+input[type="text"],input[type="number"], select {
     height: 2.125rem;
     font-size: 0.875rem;
     border-radius: 0.1875rem;
@@ -53,9 +53,12 @@ input[type="text"], select {
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
-    input[type="text"], select {
+    input[type="text"], input[type="number"], select {
         height: 2.4375rem;
         font-size: 1rem;
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
     }
 }
 
@@ -64,6 +67,7 @@ body:not(.light) [type=text]:focus {
 }
 
 body:not(.light) input[type="text"],
+body:not(.light) input[type="number"],
 body:not(.light) select,
 body:not(.light) .input-group-label,
 body:not(.light) div.syntaxbox,
@@ -250,6 +254,11 @@ textarea, textarea:focus  {
     text-align: center;
 }
 
-input[type="checkbox"], select {
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
 }
 
+input[type=number] {
+    -moz-appearance:textfield;
+}

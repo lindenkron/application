@@ -1,26 +1,3 @@
-var field_data = {
-    char: {
-        fn: "Character name",
-        ht: "In-game wow character name",
-        al: "char"
-    },
-    age: {
-        fn: "Age",
-        ht: "",
-        al: "age"
-    },
-    short: {
-        fn: "Short description",
-        ht: "Short three worded description",
-        al: "short"
-    },
-    long: {
-        fn: "Long description",
-        ht: "Long application description under 1000 characters",
-        al: "long"
-    }
-};
-
 var mm = {
     dark: {
         d: "Light Mode",
@@ -38,7 +15,8 @@ function updateSyntax() {
     var short = $('#short-field').val();
     var long = $('#long-field').val();
     var days = '';
-    var bugtext = '';
+    var apptext = '';
+    var short_words = $("#short-field").val().trim().split(/\s+/).length;
 
     for (var i = 0; i <= 6; i++) {
         var checkbox = document.getElementById('d' + i + '-field');
@@ -47,52 +25,13 @@ function updateSyntax() {
             days = days + ' ' + day;
         }
     }
-    if (char && age && days && short && long) {
+    if (char && days && (short_words == 3) && (long.length > 0 && long.length < 1001) && (age > 15 && age < 81 )) {
         days = days.substring(1);
-        bugtext = '-apply "' + char + '" "' + age + '" "' + days + '" "' + short + '" "' + long + '"';
+        apptext = '-apply "' + char + '" "' + age + '" "' + days + '" "' + short + '" "' + long + '"';
     }
-    $('#syntax').text(bugtext);
-    $('#lrg-rep').toggleClass('hidden', bugtext.length < 1050);
-}
-
-function updateField(event) {
-    window.sct = 1;
-    $('#add-btn').off('click');
-    $('#del-btn').off('click');
-    switch(event.target.value) {
-        default:
-            if (event.target.value in field_data) {
-                var field_html = '<label for="' + event.target.value + '-field">' + field_data[event.target.value].fn + '</label><p class="help-text" id="' + event.target.value + '-help">' + field_data[event.target.value].ht + '</p><input type="text" id="' + event.target.value + '-field" aria-describedby="' + event.target.value + '-help" required>';
-            }
-    }
-}
-
-function loadTheme() {
-    var light = false;
-    if (typeof(Storage) !== 'undefined') {
-        light = (localStorage.getItem('light') == 'true');
-    }
-    return light;
-}
-
-function setTheme() {
-    if (typeof(Storage) !== 'undefined') {
-        var light = false;
-        if ($('body').attr('class') == 'light') {
-            light = true;
-        }
-        localStorage.setItem('light', light.toString());
-    }
-}
-
-function switchMode() {
-    var bc = $('body').toggleClass('light')[0].className;
-    if (bc == '') {
-        bc = 'dark';
-    }
-    $('#switch-mobile').html('<i class="far fa-' + mm[bc].m + '"></i>');
-    $('#switch-desktop').html('<i class="far fa-' + mm[bc].m + '"></i> ' + mm[bc].d);
-    setTheme();
+    $('#syntax').text(apptext);
+    $('#lrg-rep').toggleClass('hidden', long.length <= 1000);
+    $('#threewords').toggleClass('hidden', short_words <= 3);
 }
 
 function pageLoad(page) {
@@ -123,4 +62,32 @@ function pageLoad(page) {
     if (loadTheme()) {
         switchMode();
     }
+}
+
+function loadTheme() {
+    var light = false;
+    if (typeof(Storage) !== 'undefined') {
+        light = (localStorage.getItem('light') == 'true');
+    }
+    return light;
+}
+
+function setTheme() {
+    if (typeof(Storage) !== 'undefined') {
+        var light = false;
+        if ($('body').attr('class') == 'light') {
+            light = true;
+        }
+        localStorage.setItem('light', light.toString());
+    }
+}
+
+function switchMode() {
+    var bc = $('body').toggleClass('light')[0].className;
+    if (bc == '') {
+        bc = 'dark';
+    }
+    $('#switch-mobile').html('<i class="far fa-' + mm[bc].m + '"></i>');
+    $('#switch-desktop').html('<i class="far fa-' + mm[bc].m + '"></i> ' + mm[bc].d);
+    setTheme();
 }
